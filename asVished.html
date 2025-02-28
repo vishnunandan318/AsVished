@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77aaff 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        .showcase {
+            min-height: 400px;
+            background: url('images/image1.jpg') no-repeat 0 -400px;
+            text-align: center;
+            color: #fff;
+        }
+        .showcase h1 {
+            margin-top: 100px;
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+        .showcase p {
+            font-size: 20px;
+        }
+       .home-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .home-gallery img {
+            width: 30%;
+            height: auto;
+        }
+        .guestlist {
+            padding: 20px;
+            background: #fff;
+            margin-top: 20px;
+        }
+        .guestlist h2 {
+            text-align: center;
+        }
+        .guestlist form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .guestlist input[type="text"], .guestlist input[type="email"] {
+            padding: 10px;
+            margin: 10px;
+            width: 50%;
+        }
+        .guestlist input[type="submit"] {
+            padding: 10px 20px;
+            background: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .guestlist form div {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 10px 0;
+        }
+        .guestlist form div label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .guestlist form div label img {
+            width: 50px;
+            height: auto;
+            cursor: pointer;
+        }
+        .gallery {
+            padding: 20px;
+            background: #fff;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+        }
+        #visit-counter {
+            margin-top: 20px;
+            text-align: center;
+            color: #fff;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>#AsVish'ed</h1>
+            <nav>
+                <ul>
+                    <li><a href="invite.html">Invite</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="gallary.html">Gallery</a></li>
+                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfrZp_XcvJFlPlzmPwa1Z2VLcNILc8R7kjbYy6HhQDjdaspPA/viewform?usp=dialog"> form </a></li>
+                    <li><a href="https://withjoy.com/AsVished/welcome"> RSVP </a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/1GmbusG4S77HNPgZyigf-bPh8e3CQszyDfxnb0UwZGCk/edit?usp=sharing"> Sangeet Dances</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="showcase" id="home">
+        <div class="container">
+            <h1>#AsVish'ed Pelli Sandadi</h1>
+            <p>Join us in celebrating our special day!</p>
+            <h2>Vishnu & Asritha's Wedding</h2>
+            <p>We are delighted to invite you to our wedding celebration!</p>
+            <p>Join us for the Sangeeth on April 22nd and the wedding on April 24th.</p>
+            <p><strong>Venue:</strong> Grand Palace Hall, Hyderabad</p>
+            <p><strong>Timing:</strong> Sangeeth - April 22nd, 7:00 PM onwards</p>
+            <p><strong>Timing:</strong> Wedding - April 24th, 10:00 AM onwards</p>
+            <div class="home-gallery">
+                <img src="images/logo.png" alt="logo">
+            </div>
+        </div>
+    </section>
+</body>
+</html>

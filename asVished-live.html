@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Links</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        h1 {
+            margin-top: 50px;
+        }
+        .link-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .link-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: calc(33.333% - 30px); /* 3 cards per row with 15px gap */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .link-card img {
+            width: 85px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        .link-card a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+        .link-card a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .link-card {
+                width: calc(50% - 30px); /* 2 cards per row for smaller screens */
+            }
+        }
+        @media (max-width: 480px) {
+            .link-card {
+                width: 100%; /* 1 card per row for very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>#AsVish'ed Live Feed 🎬</h1>
+        <h2> "Elago Dooram ga vunnav, 👀 Chusi bless cheyi 🙏💫❤️ "</h2>
+        <div class="link-grid">
+            <div class="link-card">
+                <img src="images/mehindiLogo.png" alt="Mehindi-logo">
+                <p><a href="https://youtube.com/live/H_OMpcVV1GM?feature=share" target="_blank">Mehindi</a></p>
+            </div>
+            <div class="link-card">
+                <img src="images/sangeetLogo.png" alt="sangeetLogo">
+                <p><a href="https://youtube.com/live/XdmXvN0Y3HM?feature=share" target="_blank">Sangeeth</a></p>
+            </div>
+            <div class="link-card">
+                <img src="images/bgcLogo.png" alt="BGC Logo">
+                <p><a href="https://youtube.com/live/0GVD-5Ckw9s?feature=share" target="_blank">Bride & Groom Ceremony</a></p>
+            </div>
+            <div class="link-card">
+                <img src="images/haldiLogo.png" alt="HaldiLogo">
+                <p><a href="https://youtube.com/live/RqTU1wlVAZk?feature=share" target="_blank">Haldi</a></p>
+            </div>
+            <div class="link-card">
+                <img src="images/pelliLogo.png" alt="pelliLogo">
+                <p><a href="https://youtube.com/live/Ydtd6ad0nbE?feature=share" target="_blank">Grand Wedding</a></p>
+            </div>
+        </div>
+    </div>
+    <footer style="margin-top: 50px; padding: 20px; background: rgba(0, 0, 0, 0.2); color: #fff; text-align: center;">
+        <p>&copy; Knots on 04/24/2025 #AsVish'ed💖</p>
+    </footer>
+</body>
+</html>

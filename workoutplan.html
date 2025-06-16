@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized 4-Day Gym Workout Routine lol</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        .container {
+            max-width: 95%; /* Increased max-width for better use of space with tabs */
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        h1, h2, h3 {
+            color: #2c5282;
+            font-weight: 700;
+        }
+        .section-title {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .exercise-card {
+            background-color: #f7fafc;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .exercise-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            object-fit: cover;
+            aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+        }
+        @media (min-width: 768px) {
+            .exercise-card {
+                flex-direction: row;
+            }
+            .exercise-card img {
+                width: 40%; /* Adjust image width for larger screens */
+                height: 100%;
+            }
+            .exercise-details {
+                width: 60%;
+            }
+        }
+        .note {
+            background-color: #fffbe6;
+            border-left: 4px solid #fbd38d;
+            padding: 0.75rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 1.25rem;
+        }
+        ol {
+            list-style-type: decimal;
+            margin-left: 1.25rem;
+        }
+
+        /* Tab specific styles */
+        .tabs {
+            display: flex;
+            justify-content: center; /* Center the tabs */
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+            gap: 0.5rem; /* Space between tabs */
+        }
+        .tab-button {
+            padding: 0.75rem 1.25rem;
+            background-color: #e2e8f0;
+            color: #4a5568;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 600;
+            flex-grow: 100; /* Allow buttons to grow */
+            text-align: center;
+        }
+        .tab-button:hover {
+            background-color: #cbd5e0;
+        }
+        .tab-button.active {
+            background-color: #2c5282;
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(44, 82, 130, 0.3);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-3xl md:text-4xl text-center mb-6 section-title">#AsVished Workout Plan</h1>
+
+        <button class="tab-button" onclick="toggleGuidelines()">General Guidelines</button>
+        <div id="guidelines" class="tab-content" style="display: block;">
+            <h2 class="text-2xl md:text-3xl mb-4 section-title">General Guidelines for Each Workout:</h2>
+            <ul class="list-disc pl-5 mb-6 text-gray-700">
+            <li class="mb-2">
+                <strong>Warm-up (5-10 minutes):</strong> Begin with light cardio (treadmill or stepper at a comfortable pace) to increase heart rate and blood flow. Follow this with dynamic stretches (e.g., arm circles, leg swings, torso twists) to prepare your joints and muscles for movement.
+            </li>
+            <li class="mb-2">
+                <strong>Workout:</strong> Follow the specific exercises listed for each day.
+            </li>
+            <li class="mb-2">
+                <strong>Cool-down (5-10 minutes):</strong> Finish with static stretches, holding each stretch for 20-30 seconds. Focus on the muscles you worked during that session to improve flexibility and aid recovery.
+            </li>
+            <li class="mb-2">
+                <strong>Sets & Reps:</strong>
+                <ul class="list-circle pl-5 mt-1">
+                <li>For strength and muscle building, aim for <strong>3-4 sets of 8-12 repetitions</strong> for most exercises.</li>
+                <li>For ab exercises, aim for <strong>3 sets of 15-20 repetitions</strong> or to muscular fatigue (the point where you can't do another rep with good form).</li>
+                </ul>
+            </li>
+            <li class="mb-2">
+                <strong>Weight Selection:</strong> Choose a weight that allows you to complete the target repetitions with good form, but by the last 1-2 reps, you should feel significantly challenged. If you can easily do more reps, it's time to increase the weight. If your form breaks down, decrease the weight.
+            </li>
+            <li class="mb-2">
+                <strong>Rest Between Sets:</strong> Take 60-90 seconds of rest between each set to allow for partial recovery.
+            </li>
+            <li class="mb-2">
+                <strong>Form Over Quantity:</strong> Always prioritize correct exercise form to prevent injury and maximize muscle activation. If you are unsure about the form for an exercise, consider watching a quick video tutorial or consulting a fitness professional.
+            </li>
+            <li class="mb-2">
+                <strong>Listen to Your Body:</strong> If any exercise causes sharp pain (especially important for your wife's knee), stop immediately. A dull ache or muscle fatigue is normal, but pain in the joint is a warning sign. There are always modifications or alternative exercises.
+            </li>
+            </ul>
+        </div>
+
+        <script>
+            function toggleGuidelines() {
+            const guidelines = document.getElementById('guidelines');
+            if (guidelines.style.display === 'none' || guidelines.style.display === '') {
+                guidelines.style.display = 'block';
+            } else {
+                guidelines.style.display = 'none';
+            }
+            }
+        </script>
+
+        <h2 class="text-2xl md:text-3xl mb-4 section-title">Workout Split Overview:</h2>
+        <ul class="list-disc pl-5 mb-6 text-gray-700">
+            <li><strong>Day 1: Legs (Hamstrings/Glutes Focus) & Abs</strong></li>
+            <li><strong>Day 2: Chest & Triceps</strong></li>
+            <li><strong>Day 3: Rest or Active Recovery</strong></li>
+            <li><strong>Day 4: Back & Biceps</strong></li>
+            <li><strong>Day 5: Shoulders & Abs</strong></li>
+            <li><strong>Day 6: Rest or Active Recovery</strong></li>
+            <li><strong>Day 7: Rest or Active Recovery</strong></li>
+        </ul>
+
+        <h2 class="text-2xl md:text-3xl mb-4 section-title">The Workout Routine</h2>
+
+        <!-- Tab Buttons -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="openDay(event, 'day1')">Day 1: Legs & Abs</button>
+            <button class="tab-button" onclick="openDay(event, 'day2')">Day 2: Chest & Triceps</button>
+            <button class="tab-button" onclick="openDay(event, 'day3')">Day 3: Rest/Recovery</button>
+            <button class="tab-button" onclick="openDay(event, 'day4')">Day 4: Back & Biceps</button>
+            <button class="tab-button" onclick="openDay(event, 'day5')">Day 5: Shoulders & Abs</button>
+            <button class="tab-button" onclick="openDay(event, 'day67')">Day 6 & 7: Rest/Recovery</button>
+        </div>
+
+        <!-- Tab Content - Day 1 -->
+        <div id="day1" class="tab-content active">
+            <h3 class="text-xl md:text-2xl text-blue-800 mb-3">Day 1: Legs (Hamstrings/Glutes Focused) & Abs</h3>
+            <p class="mb-2 text-gray-700">
+                <strong>Benefits:</strong> This day focuses on building strong lower body muscles, crucial for overall strength, mobility, and calorie expenditure. Targeting hamstrings and glutes helps improve posture and power. Core work enhances stability.
+            </p>
+            <p class="mb-2 text-gray-700"><strong>Target Muscles:</strong> Hamstrings, Glutes, Quadriceps (secondary), Calves, Abs</p>
+            <p class="mb-4 text-gray-700"><strong>Warm-up:</strong> Treadmill or Stepper (5 min), Leg Swings (forward/backward and side-to-side), Butt Kicks, Torso Twists.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="exercise-card">
+                    <img src="workout images/treadmill.gif" alt="Treadmill or Stepper (5 min)" class="rounded-lg">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700 cursor-pointer">Treadmill or Stepper (5 min):</strong>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <img src="workout images/leg_swing.gif" alt="Leg Swings (forward/backward and side-to-side)" class="rounded-lg">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700 cursor-pointer">Leg Swings (forward/backward and side-to-side):</strong>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <img src="workout images/butt-kicks.gif" alt="Butt Kicks" class="rounded-lg">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700 cursor-pointer">Butt Kicks:</strong>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <img src="workout images/torso_twists.gif" alt="Torso Twists" class="rounded-lg">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700 cursor-pointer">Torso Twists:</strong>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mb-6 text-gray-700"><strong>workout:</strong> Dumbbell Romanian Deadlifts, Dumbbell Goblet Squats, Dumbbell Glute Bridges / Hip Thrusts, Dumbbell Calf Raises, Plank, Dead Bug.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="exercise-card">
+                    <img src="workout images/RDL.gif" alt="Dumbbell Romanian Deadlifts" class="rounded-lg">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700 cursor-pointer" onclick="toggleDetails(this)">Dumbbell Romanian Deadlifts (RDLs):</strong>
+                        <div class="how-to hidden">
+                            <ul class="list-disc pl-5 mt-1 text-gray-700">
+                                <li><strong>How to:</strong> Hold dumbbells in front of your thighs, palms facing your body. Keeping a slight bend in your knees and a straight back, hinge at your hips, lowering the dumbbells towards the floor. Feel the stretch in your hamstrings. Squeeze your glutes to return to the standing position.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <img src="workout images/goblet_squats.gif" alt="Dumbbell Goblet Squats" class="rounded-lg">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700 cursor-pointer" onclick="toggleDetails(this)">Dumbbell Goblet Squats:</strong>
+                        <div class="how-to hidden">
+                            <ul class="list-disc pl-5 mt-1 text-gray-700">
+                               <li><strong>How to:</strong> Hold one dumbbell vertically against your chest with both hands. Stand with feet shoulder-width apart, toes slightly pointed out. Squat down as if sitting in a chair, keeping your chest up and back straight.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <img src="workout images/glutebridge.gif" alt="Dumbbell Glute Bridges / Hip Thrusts class="rounded-lg">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700 cursor-pointer" onclick="toggleDetails(this)">Dumbbell Glute Bridges / Hip Thrusts:</strong>
+                        <div class="how-to hidden">
+                            <ul class="list-disc pl-5 mt-1 text-gray-700">
+                                <li><strong>How to:</strong> Lie on your back, knees bent, feet flat on the floor close to your glutes. Place a dumbbell across your hips (optional, use a yoga mat or folded towel for padding). Drive through your heels, lifting your hips towards the ceiling, squeezing your glutes powerfully at the top. Lower slowly with control.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <img src="workout images/Dumbbell-Calf-Raise.gif" alt="Dumbbell Calf Raises" class="rounded-lg">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700 cursor-pointer" onclick="toggleDetails(this)">Dumbbell Calf Raises:</strong>
+                        <div class="how-to hidden">
+                            <ul class="list-disc pl-5 mt-1 text-gray-700">
+                                <li><strong>How to:</strong> Hold dumbbells at your sides. Stand with the balls of your feet on a slightly elevated surface (like a small step or weight plate if available, otherwise flat ground). Raise up onto your toes as high as possible, squeezing your calves, then lower slowly, feeling a stretch in your calves at the bottom.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <img src="workout images/plank.gif" alt="Plank" class="rounded-lg">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700 cursor-pointer" onclick="toggleDetails(this)">Plank:</strong>
+                        <div class="how-to hidden">
+                            <ul class="list-disc pl-5 mt-1 text-gray-700">
+                                <li><strong>How to:</strong> Support your body on your forearms and toes on the mat. Keep your body in a straight line from your head to your heels. Engage your core tightly, avoiding letting your hips sag or pike up. Hold for time (e.g., 30-60 seconds).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <img src="workout images/Dead-Bug.gif" alt="Dead Bug" class="rounded-lg">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700 cursor-pointer" onclick="toggleDetails(this)">Dead Bug:</strong>
+                        <div class="how-to hidden">
+                            <ul class="list-disc pl-5 mt-1 text-gray-700">
+                                <li><strong>How to:</strong> Lie on your back on the mat, knees bent at 90 degrees directly over your hips, arms extended straight up towards the ceiling. Slowly lower one arm overhead towards the floor and the opposite leg towards the floor simultaneously, ensuring your lower back remains pressed into the mat. Return to the start and alternate sides.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function toggleDetails(element) {
+                    const details = element.nextElementSibling;
+                    details.classList.toggle('hidden');
+                }
+            </script>
+            <p class="mb-6 text-gray-700"><strong>Cool-down:</strong> Hamstring stretch (e.g., seated forward fold), Quadriceps stretch (e.g., standing quad stretch), Glute stretch (e.g., figure-four stretch on your back), Calf stretch (e.g., against a wall).</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="exercise-card">
+                    <img src="workout images/hamstring_stretch.gif" alt="Hamstring stretch" class="rounded-lg">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700 cursor-pointer">Hamstring stretch:</strong>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <img src="workout images/quadriceps_stretch.gif" alt="Quadriceps stretch" class="rounded-lg">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700 cursor-pointer">Quadriceps stretch:</strong>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <img src="workout images/glutestretch.gif" alt="Glute stretch" class="rounded-lg">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700 cursor-pointer">Glute stretch:</strong>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700 cursor-pointer">Calf stretch:</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Content - Day 2 -->
+        <div id="day2" class="tab-content">
+            <h3 class="text-xl md:text-2xl text-blue-800 mb-3">Day 2: Chest & Triceps</h3>
+            <p class="mb-2 text-gray-700">
+                <strong>Benefits:</strong> This session builds upper body pushing strength, essential for daily activities and overall muscular development. Strong triceps are key for many pressing movements, while chest exercises improve posture and upper body aesthetics.
+            </p>
+            <p class="mb-2 text-gray-700"><strong>Target Muscles:</strong> Pectorals (chest), Triceps, Anterior Deltoids (front of shoulders)</p>
+            <p class="mb-4 text-gray-700"><strong>Warm-up:</strong> Treadmill or Stepper (5 min), Arm Circles (forward/backward), gentle Chest Stretches.</p>
+
+            <ol class="list-decimal pl-5 mb-6">
+                <li class="exercise-card mb-4">
+                    <img src="https://placehold.co/600x338/E0E7FF/4338CA?text=Dumbbell+Floor+Press+Demo" alt="Dumbbell Floor Press Demo">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700">Dumbbell Floor Press:</strong>
+                        <ul class="list-disc pl-5 mt-1 text-gray-700">
+                            <li><strong>Knee Safety:</strong> Lying on the floor provides a natural stopping point for the elbows, reducing potential shoulder and elbow stress compared to a bench.</li>
+                            <li><strong>How to:</strong> Lie on your back on the yoga mat, knees bent, feet flat on the floor. Hold a dumbbell in each hand, palms facing each other or slightly rotated, with your elbows resting on the floor. Press the dumbbells straight up towards the ceiling, squeezing your chest muscles. Lower slowly back down until your elbows lightly touch the floor.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="exercise-card mb-4">
+                    <img src="https://placehold.co/600x338/E0E7FF/4338CA?text=Dumbbell+Flyes+Demo" alt="Dumbbell Flyes Demo">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700">Dumbbell Flyes (on floor):</strong>
+                        <ul class="list-disc pl-5 mt-1 text-gray-700">
+                            <li><strong>How to:</strong> Lie on your back on the yoga mat, knees bent, feet flat. Hold a dumbbell in each hand above your chest, palms facing each other, with a slight bend in your elbows (like hugging a tree). Open your arms out to the sides in a wide arc until your elbows lightly touch the floor (or just before if you feel a deep stretch). Bring them back up, squeezing your chest.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="exercise-card mb-4">
+                    <img src="https://placehold.co/600x338/E0E7FF/4338CA?text=Triceps+Extension+Demo" alt="Dumbbell Triceps Extensions Demo">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700">Dumbbell Triceps Extensions (Overhead or Lying/Skullcrushers):</strong>
+                        <ul class="list-disc pl-5 mt-1 text-gray-700">
+                            <li><strong>Overhead:</strong> Stand or sit, hold one dumbbell with both hands (cupping one end) behind your head, elbows pointing forward. Extend your arms overhead, contracting your triceps. Lower the dumbbell slowly back behind your head.</li>
+                            <li><strong>Lying (Skullcrushers):</strong> Lie on your back on the mat, hold dumbbells above your chest with arms extended. Bend your elbows, lowering the dumbbells towards your forehead. Extend your arms back up, squeezing triceps.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="exercise-card mb-4">
+                    <img src="https://placehold.co/600x338/E0E7FF/4338CA?text=Dumbbell+Kickbacks+Demo" alt="Dumbbell Kickbacks Demo">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700">Dumbbell Kickbacks:</strong>
+                        <ul class="list-disc pl-5 mt-1 text-gray-700">
+                            <li><strong>How to:</strong> Stand with a slight bend in your knees, hinge at your hips (back straight, almost parallel to the floor). Hold a dumbbell in one hand, keeping your upper arm tucked to your side, elbow bent at 90 degrees. Extend your forearm straight back, squeezing your triceps at the top. Control the return motion.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="exercise-card mb-4">
+                    <img src="https://placehold.co/600x338/E0E7FF/4338CA?text=Pushups+Demo" alt="Push-ups Demo">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700">Push-ups (on knees or full):</strong>
+                        <ul class="list-disc pl-5 mt-1 text-gray-700">
+                            <li><strong>How to:</strong> Place your hands slightly wider than shoulder-width apart. Lower your chest towards the floor, keeping your body in a straight line from head to heels. Push back up. If full push-ups are too challenging, perform them on your knees.</li>
+                        </ul>
+                    </div>
+                </li>
+            </ol>
+            <p class="mb-6 text-gray-700"><strong>Cool-down:</strong> Chest stretch (e.g., standing in a doorway or pressing hands behind back), Triceps stretch (e.g., arm overhead, use other hand to gently pull elbow down).</p>
+        </div>
+
+        <!-- Tab Content - Day 3 -->
+        <div id="day3" class="tab-content">
+            <h3 class="text-xl md:text-2xl text-blue-800 mb-3">Day 3: Rest or Active Recovery</h3>
+            <p class="mb-2 text-gray-700">
+                <strong>Benefits:</strong> Rest and active recovery are crucial for muscle repair, growth, and preventing overtraining. It allows your body to recover from the stress of lifting, reduces muscle soreness, and improves overall performance in subsequent workouts.
+            </p>
+            <p class="mb-6 text-gray-700">
+                This is a crucial day for recovery. Engage in light activities such as a gentle walk, easy stretching, or light yoga (if you are familiar with the poses). The goal is to promote blood flow and flexibility without intense exertion.
+            </p>
+        </div>
+
+        <!-- Tab Content - Day 4 -->
+        <div id="day4" class="tab-content">
+            <h3 class="text-xl md:text-2xl text-blue-800 mb-3">Day 4: Back & Biceps</h3>
+            <p class="mb-2 text-gray-700">
+                <strong>Benefits:</strong> This workout strengthens your pulling muscles, vital for good posture, back health, and daily movements. Strong biceps contribute to arm strength and aesthetics, while a robust back supports the entire upper body.
+            </p>
+            <p class="mb-2 text-gray-700"><strong>Target Muscles:</strong> Latissimus Dorsi (lats), Rhomboids, Trapezius (traps), Biceps, Forearms</p>
+            <p class="mb-4 text-gray-700"><strong>Warm-up:</strong> Treadmill or Stepper (5 min), Arm Circles, Cat-Cow stretch (on the mat) to mobilize the spine.</p>
+
+            <ol class="list-decimal pl-5 mb-6">
+                <li class="exercise-card mb-4">
+                    <img src="https://placehold.co/600x338/E0E7FF/4338CA?text=Bent-Over+Rows+Demo" alt="Dumbbell Bent-Over Rows Demo">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700">Dumbbell Bent-Over Rows:</strong>
+                        <ul class="list-disc pl-5 mt-1 text-gray-700">
+                            <li><strong>How to:</strong> Stand with a slight bend in your knees, hinge at your hips, keeping your back straight (as parallel to the floor as comfortable without rounding). Hold dumbbells with palms facing each other. Pull the dumbbells up towards your chest, squeezing your shoulder blades together. Lower with control.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="exercise-card mb-4">
+                    <img src="https://placehold.co/600x338/E0E7FF/4338CA?text=Dumbbell+Pullovers+Demo" alt="Dumbbell Pullovers Demo">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700">Dumbbell Pullovers (on mat):</strong>
+                        <ul class="list-disc pl-5 mt-1 text-gray-700">
+                            <li><strong>How to:</strong> Lie on your back on the yoga mat, knees bent, feet flat. Hold one dumbbell with both hands (cupping one end) above your chest. Keeping a slight bend in your elbows, lower the dumbbell behind your head towards the floor until you feel a stretch in your lats and chest. Pull it back up to the starting position using your lats.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="exercise-card mb-4">
+                    <img src="https://placehold.co/600x338/E0E7FF/4338CA?text=Bicep+Curl+Demo" alt="Dumbbell Bicep Curls Demo">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700">Dumbbell Bicep Curls (Standing or Seated):</strong>
+                        <ul class="list-disc pl-5 mt-1 text-gray-700">
+                            <li><strong>How to:</strong> Stand or sit holding dumbbells, palms facing forward (supinated grip). Keep your elbows tucked in close to your sides. Curl the dumbbells up towards your shoulders, squeezing your biceps at the top. Lower slowly with control, resisting the weight. Avoid swinging your body.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="exercise-card mb-4">
+                    <img src="https://placehold.co/600x338/E0E7FF/4338CA?text=Hammer+Curl+Demo" alt="Dumbbell Hammer Curls Demo">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700">Dumbbell Hammer Curls:</strong>
+                        <ul class="list-disc pl-5 mt-1 text-gray-700">
+                            <li><strong>How to:</strong> Similar to bicep curls, but your palms face each other throughout the movement (neutral grip). This variation targets both the biceps and forearms.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="exercise-card mb-4">
+                    <img src="https://placehold.co/600x338/E0E7FF/4338CA?text=Bird-Dog+Demo" alt="Bird-Dog Demo">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700">Bird-Dog:</strong>
+                        <ul class="list-disc pl-5 mt-1 text-gray-700">
+                            <li><strong>How to:</strong> Start on all fours (hands and knees) on the yoga mat. Extend one arm straight forward and the opposite leg straight back, keeping your core engaged and your back flat and stable. Hold briefly, then return to the start and alternate sides. Focus on controlled movement and stability.</li>
+                        </ul>
+                    </div>
+                </li>
+            </ol>
+            <p class="mb-6 text-gray-700"><strong>Cool-down:</strong> Lat stretch (e.g., reaching overhead and to the side, grabbing something to pull), Bicep stretch (e.g., straighten arm out, gently pull fingers back with other hand).</p>
+        </div>
+
+        <!-- Tab Content - Day 5 -->
+        <div id="day5" class="tab-content">
+            <h3 class="text-xl md:text-2xl text-blue-800 mb-3">Day 5: Shoulders & Abs</h3>
+            <p class="mb-2 text-gray-700">
+                <strong>Benefits:</strong> Developing strong shoulders is crucial for upper body strength and mobility. This session targets all heads of the deltoids, contributing to well-rounded upper body development and core strength, important for overall stability.
+            </p>
+            <p class="mb-2 text-gray-700"><strong>Target Muscles:</strong> Deltoids (front, side, and rear), Upper Trapezius, Abs</p>
+            <p class="mb-4 text-gray-700"><strong>Warm-up:</strong> Treadmill or Stepper (5 min), Arm Circles, gentle Neck Rolls, Shoulder Shrugs.</p>
+
+            <ol class="list-decimal pl-5 mb-6">
+                <li class="exercise-card mb-4">
+                    <img src="https://placehold.co/600x338/E0E7FF/4338CA?text=Overhead+Press+Demo" alt="Dumbbell Overhead Press Demo">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700">Dumbbell Overhead Press (Seated or Standing):</strong>
+                        <ul class="list-disc pl-5 mt-1 text-gray-700">
+                            <li><strong>Knee Safety (for your wife):</strong> Performing this exercise seated can provide more stability and reduce any strain on the lower body. Choose a comfortable weight.</li>
+                            <li><strong>How to:</strong> Hold dumbbells at shoulder height, palms facing forward. Press the dumbbells straight overhead until your arms are fully extended. Lower slowly and with control back to the starting position.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="exercise-card mb-4">
+                    <img src="https://placehold.co/600x338/E0E7FF/4338CA?text=Lateral+Raises+Demo" alt="Dumbbell Lateral Raises Demo">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700">Dumbbell Lateral Raises:</strong>
+                        <ul class="list-disc pl-5 mt-1 text-gray-700">
+                            <li><strong>How to:</strong> Stand or sit, holding dumbbells at your sides, palms facing in. With a slight bend in your elbows, raise your arms out to the sides until they are parallel with the floor (or slightly below shoulder height if you feel any shoulder discomfort). Control the descent slowly.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="exercise-card mb-4">
+                    <img src="https://placehold.co/600x338/E0E7FF/4338CA?text=Front+Raises+Demo" alt="Dumbbell Front Raises Demo">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700">Dumbbell Front Raises:</strong>
+                        <ul class="list-disc pl-5 mt-1 text-gray-700">
+                            <li><strong>How to:</strong> Stand or sit, holding dumbbells in front of your thighs, palms facing your body. Keeping your arms relatively straight (a slight elbow bend is fine), raise them directly in front of you to shoulder height. Control the descent.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="exercise-card mb-4">
+                    <img src="https://placehold.co/600x338/E0E7FF/4338CA?text=Upright+Rows+Demo" alt="Dumbbell Upright Rows Demo">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700">Dumbbell Upright Rows (Optional - Use caution with shoulders):</strong>
+                        <ul class="list-disc pl-5 mt-1 text-gray-700">
+                            <li><strong>Note:</strong> This exercise can sometimes be uncomfortable for the shoulders for some individuals. If you or your wife feel any pinching or pain, skip it and perform more lateral/front raises or another shoulder exercise like a rear delt fly (lying face down on a mat).</li>
+                            <li><strong>How to:</strong> Hold dumbbells in front of your thighs, palms facing your body. Pull the dumbbells straight up towards your chin, leading with your elbows. Keep the dumbbells close to your body throughout the movement.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="exercise-card mb-4">
+                    <img src="https://placehold.co/600x338/E0E7FF/4338CA?text=Russian+Twists+Demo" alt="Russian Twists Demo">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700">Russian Twists:</strong>
+                        <ul class="list-disc pl-5 mt-1 text-gray-700">
+                            <li><strong>How to:</strong> Sit on the yoga mat, knees bent, feet flat on the floor (or slightly elevated for more challenge). Lean back slightly, maintaining a straight back and engaged core. Hold a dumbbell with both hands. Twist your torso from side to side, lightly touching the dumbbell to the floor beside your hips (optional).</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="exercise-card mb-4">
+                    <img src="https://placehold.co/600x338/E0E7FF/4338CA?text=Leg+Raises+Demo" alt="Leg Raises Demo">
+                    <div class="exercise-details">
+                        <strong class="text-lg text-blue-700">Leg Raises (on mat):</strong>
+                        <ul class="list-disc pl-5 mt-1 text-gray-700">
+                            <li><strong>How to:</strong> Lie on your back on the yoga mat, hands under your glutes for lower back support (optional). Keep your legs straight or slightly bent. Slowly raise your legs towards the ceiling until your hips are perpendicular to the floor. Lower slowly and with control, stopping just before your heels touch the mat. Keep your lower back pressed into the mat throughout the exercise.</li>
+                        </ul>
+                    </div>
+                </li>
+            </ol>
+            <p class="mb-6 text-gray-700"><strong>Cool-down:</strong> Shoulder stretch (e.g., crossing arm across body), Neck stretch, Pec Minor stretch (e.g., reaching arm out to side against a doorframe).</p>
+        </div>
+
+        <!-- Tab Content - Day 6 & 7 -->
+        <div id="day67" class="tab-content">
+            <h3 class="text-xl md:text-2xl text-blue-800 mb-3">Day 6 & 7: Rest or Active Recovery</h3>
+            <p class="mb-2 text-gray-700">
+                <strong>Benefits:</strong> These days are critical for allowing your muscles to repair, grow, and adapt to the training stimulus. Adequate rest prevents overtraining, reduces injury risk, and ensures you're fresh and strong for your next workout sessions.
+            </p>
+            <p class="mb-6 text-gray-700">
+                These days are crucial for muscle repair and growth. Prioritize rest, light walking, or gentle activities. Avoid strenuous exercise to allow your bodies to recover fully.
+            </p>
+        </div>
+
+
+        <h2 class="text-2xl md:text-3xl mb-4 section-title">Important Considerations for Your Journey:</h2>
+        <ul class="list-disc pl-5 mb-6 text-gray-700">
+            <li class="mb-2">
+                <strong>Progressive Overload:</strong> This is the principle for continued progress. To build muscle and strength, you must continually challenge your muscles. This means:
+                <ul class="list-circle pl-5 mt-1">
+                    <li><strong>Increase Weight:</strong> When you can comfortably complete all sets and reps with good form, increase the weight slightly for that exercise.</li>
+                    <li><strong>Increase Reps:</strong> If increasing weight isn't feasible, try to add 1-2 more repetitions to your sets.</li>
+                    <li><strong>Increase Sets:</strong> After consistent progress, consider adding an extra set to some exercises.</li>
+                    <li><strong>Decrease Rest Time:</strong> Gradually reduce the rest period between sets to increase intensity.</li>
+                </ul>
+            </li>
+            <li class="mb-2">
+                <strong>Nutrition:</strong> Adequate protein intake is vital for muscle building and repair. Aim for roughly 0.7-1 gram of protein per pound of body weight per day. Don't forget healthy fats and complex carbohydrates for sustained energy and overall health.
+            </li>
+            <li class="mb-2">
+                <strong>Hydration:</strong> Drink plenty of water throughout the day, especially around your workouts.
+            </li>
+            <li class="mb-2">
+                <strong>Consistency:</strong> The most important factor for long-term success. Stick to the routine as much as possible, even if some days you have to do a shorter version.
+            </li>
+            <li class="mb-2">
+                <strong>Sleep:</strong> Crucial for muscle repair, hormonal balance, and overall recovery. Aim for 7-9 hours of quality sleep each night.
+            </li>
+            <li class="mb-2">
+                <strong>Enjoyment:</strong> Find joy in the process! Working out together can be a fantastic way to stay motivated and support each other.
+            </li>
+        </ul>
+
+    
+
+        <p class="mt-6 text-center text-gray-600">
+            This routine is curated for our own personal use. Please use at your own risk
+        </p>
+    </div>
+
+    <script>
+        function openDay(evt, dayName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tab-content" and hide them
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tab-button" and remove the "active" class
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(dayName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Automatically open the first tab on page load
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelector('.tab-button').click();
+        });
+    </script>
+</body>
+</html>

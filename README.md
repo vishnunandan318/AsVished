@@ -1,1 +1,3 @@
 # AsVished
+
+knowledge processing...

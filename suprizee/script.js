@@ -8,10 +8,11 @@ setInterval(()=>{
     e.className="emoji";
     e.innerText=emojis[Math.floor(Math.random()*emojis.length)];
     e.style.left=Math.random()*100+"vw";
+    e.style.fontSize=(18+Math.random()*30)+"px";
     e.style.animationDuration=(4+Math.random()*6)+"s";
     document.body.appendChild(e);
     setTimeout(()=>e.remove(),10000);
-},300);
+},200);
 
 /* ---------------- QUESTIONS ---------------- */
 let step=0;
@@ -111,35 +112,56 @@ function confettiGifts(){
 
     const card=document.getElementById("card");
     card.innerHTML=`
-    <div class="options-grid">
-      <button onclick="letter()">💌 Love Letter</button>
-      <button onclick="roses()">🌹 Roses</button>
-      <button onclick="wordcloud()">☁️ Wordcloud</button>
+    <div class="gift-grid">
+      <div class="gift" onclick="roses()">🎁 Gift 1</div>
+      <div class="gift" onclick="letter()">🎁 Gift 2</div>
+      <div class="gift" onclick="wordcloud()">🎁 Gift 3</div>
     </div>`;
 }
 
 /* EDIT LETTER HERE */
 function letter(){
     document.getElementById("card").innerHTML=`
-    <h2>My Love</h2>
-    <p style="font-family:cursive">
-    You are my peace, my happiness, my favorite person...
-    (EDIT THIS LOVE LETTER)
-    </p>`;
+    <div class="letter">
+    <h2>💌 My Love Letter</h2>
+    <p>
+    Dear Bangari 💖,<br><br>
+
+    I can only begin with gratitude for having you in my life. You came out of nowhere and slowly became my entire world — and I wouldn’t want it any other way. ✨<br><br>
+
+    You are precious to me. You are amazing, talented, beautiful, smart, understanding, and truly everything a man could ever wish for. 🥰<br><br>
+
+    Thank you for choosing me… not just once, but for the second time in a row. That means more to me than you can ever imagine. ❤️<br><br>
+
+    I’m so excited and grateful to celebrate this Valentine’s Day with my Bangari! 💘🌹<br><br>
+
+    With all my love,<br>
+    <b>Itlu,<br>Rowdy Gadu 😎</b>
+    </p>
+    </div>
+    <br/>
+    <button onclick="confettiGifts()">Back to Gifts</button>
+    `;
 }
 
 /* ADD ROSE IMAGE / GIF HERE */
 function roses(){
     document.getElementById("card").innerHTML=`
     <h2>For you 🌹🎈</h2>
-    <img src="ADD_ROSE_IMAGE_URL" style="width:80%;border-radius:20px"/>`;
+    <img src="ADD_ROSE_IMAGE_URL" style="width:80%;border-radius:20px"/>
+    <br/><br/>
+    <button onclick="confettiGifts()">Back to Gifts</button>
+    `;
 }
 
 /* ADD WORDCLOUD IMAGE HERE */
 function wordcloud(){
     document.getElementById("card").innerHTML=`
-    <h2>Words that define us</h2>
-    <img src="ADD_WORDCLOUD_IMAGE" style="width:80%;border-radius:20px"/>`;
+    <h2>Words that define us ☁️</h2>
+    <img src="ADD_WORDCLOUD_IMAGE" style="width:80%;border-radius:20px"/>
+    <br/><br/>
+    <button onclick="confettiGifts()">Back to Gifts</button>
+    `;
 }
 
 loadQ();

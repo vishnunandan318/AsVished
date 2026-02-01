@@ -1,104 +1,145 @@
-const questions = [
-    {
-        q: "If we were stuck in an elevator for 2 hours, what would we do?",
-        options: ["Panic", "Talk non-stop", "Take selfies", "Enjoy silence together"]
-    },
-    {
-        q: "What is your favorite memory of us?",
-        options: ["First trip", "Late-night talks", "Laughing day", "Every day"]
-    },
-    {
-        q: "When you think of us, what feeling comes first?",
-        options: ["Peace", "Comfort", "Happiness", "Home"]
-    },
-    {
-        q: "If we could be anywhere now, where would we be?",
-        options: ["Beach", "Mountains", "Cafe date", "Anywhere together"]
-    }
+/* ---------------- SOUNDS ---------------- */
+function play(){ document.getElementById("chime").play(); }
+
+/* ---------------- EMOJI BG ---------------- */
+const emojis=["💖","💘","💕","🌸","✨","🥰"];
+setInterval(()=>{
+    const e=document.createElement("div");
+    e.className="emoji";
+    e.innerText=emojis[Math.floor(Math.random()*emojis.length)];
+    e.style.left=Math.random()*100+"vw";
+    e.style.animationDuration=(4+Math.random()*6)+"s";
+    document.body.appendChild(e);
+    setTimeout(()=>e.remove(),10000);
+},300);
+
+/* ---------------- QUESTIONS ---------------- */
+let step=0;
+let yesSize=1;
+let yesClicks=0;
+
+const questions=[
+{
+ q:'When did I say "love you" first?',
+ options:["Dec 15th","Dec 23rd","Dec 16th","Dec 18th"],
+ correct:"Dec 15th",
+ reactCorrect:"Hurrey!!! 🎉",
+ reactWrong:"I will bite you 😝"
+},
+{
+ q:"What is your favorite memory of us?",
+ options:["First trip","Late-night talks","Laughing day","Every day"],
+ react:"Aww nice 🥰"
+},
+{
+ q:"When you think of us, what feeling comes first?",
+ options:["Peace","Comfort","Happiness","Home"],
+ react:"Hmm Interesting!!! 🤔"
+},
+{
+ q:"If you could be anywhere now, where do you wanna be?",
+ options:["Iceland","Macherla","Arizona","In your Heart"],
+ react:"😊"
+}
 ];
 
-const reactions = [
-    "Yayyy! I like that answer 😍",
-    "Hehe… good choice 😉",
-    "Hurrayy!! 🎉",
-    "Wrong answer… I bite you 😝"
-];
-
-let current = 0;
-let answers = [];
-
-function loadQuestion() {
-    const q = document.getElementById("question");
-    const opt = document.getElementById("options");
-    const reaction = document.getElementById("reaction");
-
-    reaction.innerText = "";
-
-    if (current < questions.length) {
-        q.innerText = questions[current].q;
-        opt.innerHTML = "";
-
-        questions[current].options.forEach(o => {
-            const btn = document.createElement("button");
-            btn.innerText = o;
-            btn.onclick = () => handleAnswer(o);
-            opt.appendChild(btn);
+function loadQ(){
+    if(step<questions.length){
+        document.getElementById("question").innerText=questions[step].q;
+        const opt=document.getElementById("options");
+        opt.innerHTML="";
+        questions[step].options.forEach(o=>{
+            const b=document.createElement("button");
+            b.innerText=o;
+            b.onclick=()=>answer(o);
+            opt.appendChild(b);
         });
-    } else {
-        showFinal();
+    } else valentineQ();
+}
+
+function answer(ans){
+    play();
+    const r=document.getElementById("reaction");
+    const q=questions[step];
+
+    if(q.correct){
+        r.innerText = (ans===q.correct)? q.reactCorrect : q.reactWrong;
+    }else{
+        r.innerText=q.react;
     }
+
+    setTimeout(()=>{step++; r.innerText=""; loadQ();},900);
 }
 
-function handleAnswer(ans) {
-    answers.push(ans);
-    const reaction = document.getElementById("reaction");
-    reaction.innerText = reactions[Math.floor(Math.random() * reactions.length)];
+/* ---------------- VALENTINE ---------------- */
+function valentineQ(){
+    document.getElementById("mainHeading").innerText="Will you be my Valentine?";
+    document.getElementById("mainHeading").style.fontFamily="fantasy";
 
-    setTimeout(() => {
-        current++;
-        loadQuestion();
-    }, 1000);
-}
-
-function showFinal() {
-    const card = document.getElementById("card");
-    card.innerHTML = `
-        <h2>So… after all this ❤️</h2>
-        <h1>Will you be my Valentine?</h1>
-        <button onclick="celebrate()">YES 💘</button>
-        <button onclick="celebrate()">Of course YES 😍</button>
-        <br/><br/>
-        <input type="file" id="photoUpload" accept="image/*"/>
-        <p>Upload our photo 🥰</p>
-    `;
-}
-
-function celebrate() {
-    sendEmail();
-    document.body.innerHTML = `
-        <div style="text-align:center;margin-top:15%">
-            <h1>Yayyyy! ❤️🥳</h1>
-            <p>You made my day!</p>
-            <img id="preview" style="max-width:300px;border-radius:20px;margin-top:20px"/>
-        </div>
+    const card=document.getElementById("card");
+    card.innerHTML=`
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+        <p id="reaction"></p>
     `;
 
-    const file = document.getElementById("photoUpload");
-    if (file && file.files[0]) {
-        const reader = new FileReader();
-        reader.onload = e => {
-            document.getElementById("preview").src = e.target.result;
-        };
-        reader.readAsDataURL(file.files[0]);
-    }
+    document.getElementById("yes").onclick=yesClick;
+    document.getElementById("no").onclick=noClick;
 }
 
-function sendEmail() {
-    fetch("https://formspree.io/f/mykpekww", {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ answers: answers })
-    });
+function yesClick(){
+    play();
+    yesClicks++;
+    yesSize+=0.2;
+    const y=document.getElementById("yes");
+    y.style.transform=`scale(${yesSize})`;
+    document.getElementById("reaction").innerText="Saripoledu 😄";
+
+    if(yesClicks>=10) confettiGifts();
 }
 
-loadQuestion();
+function noClick(){
+    const n=document.getElementById("no");
+    n.style.transform="scale(0.7)";
+    document.getElementById("reaction").innerText="niku option vundi anukunava? 😜";
+}
+
+/* ---------------- GIFTS ---------------- */
+function confettiGifts(){
+    document.getElementById("mainHeading").innerText="Yay, you said yes!";
+    document.getElementById("mainHeading").style.fontFamily="monospace";
+
+    const card=document.getElementById("card");
+    card.innerHTML=`
+    <div class="options-grid">
+      <button onclick="letter()">💌 Love Letter</button>
+      <button onclick="roses()">🌹 Roses</button>
+      <button onclick="wordcloud()">☁️ Wordcloud</button>
+    </div>`;
+}
+
+/* EDIT LETTER HERE */
+function letter(){
+    document.getElementById("card").innerHTML=`
+    <h2>My Love</h2>
+    <p style="font-family:cursive">
+    You are my peace, my happiness, my favorite person...
+    (EDIT THIS LOVE LETTER)
+    </p>`;
+}
+
+/* ADD ROSE IMAGE / GIF HERE */
+function roses(){
+    document.getElementById("card").innerHTML=`
+    <h2>For you 🌹🎈</h2>
+    <img src="ADD_ROSE_IMAGE_URL" style="width:80%;border-radius:20px"/>`;
+}
+
+/* ADD WORDCLOUD IMAGE HERE */
+function wordcloud(){
+    document.getElementById("card").innerHTML=`
+    <h2>Words that define us</h2>
+    <img src="ADD_WORDCLOUD_IMAGE" style="width:80%;border-radius:20px"/>`;
+}
+
+loadQ();

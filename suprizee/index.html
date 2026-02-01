@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>For Someone Special ❤️</title>
+    <title>Quiz for You ❤️</title>
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<div class="hearts"></div>
+<div id="stickers">📅 Feb 14 💖💘💕</div>
+<div id="emoji-container"></div>
 
 <div class="container">
+    <h1 id="mainHeading">Quiz for you</h1>
     <div class="card" id="card">
         <h2 id="question"></h2>
         <div id="options" class="options-grid"></div>
-        <p id="reaction" class="reaction"></p>
+        <p id="reaction"></p>
     </div>
 </div>
+
+<audio id="chime" src="sounds/chime.mp3"></audio>
 
 <script src="script.js"></script>
 </body>

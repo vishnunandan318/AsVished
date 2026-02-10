@@ -211,7 +211,7 @@ function wordcloud(){
 
     card.innerHTML = `
         <h2>Words that define us ☁️</h2>
-        <img src="img/wordcloud3.png" class="wordcloud-img"/>
+        <img src="img/wordcloud1.png" class="wordcloud-img"/>
         <br/><br/>
         <button onclick="backToGifts()">Back to Gifts</button>
     `;

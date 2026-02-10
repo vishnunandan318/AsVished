@@ -1,5 +1,7 @@
 /* ---------------- SOUNDS ---------------- */
-function play(){ document.getElementById("chime").play(); }
+function play(){
+document.getElementById("fireworksSound").load();
+}
 function playbg(){ document.getElementById("bg").play(); }
 
 /* ---------------- EMOJI BG ---------------- */
@@ -20,6 +22,7 @@ let step=0;
 let yesSize=1;
 let yesClicks=0;
 let noClicks = 0;
+let fireworksPlayed = false; // ensures it plays only once
 
 const questions=[
 {
@@ -109,6 +112,15 @@ function yesClick(){
     document.getElementById("reaction").innerText="Saripoledu 😄";
 
     if(yesClicks>=10){
+
+      // 🎆 Play fireworks sound ONLY ONCE
+            if(!fireworksPlayed){
+                fireworksPlayed = true;
+                const fire = document.getElementById("fireworksSound");
+                fire.currentTime = 0;
+                fire.play();
+            }
+
         burstConfetti();
         setTimeout(confettiGifts,1200);
     }
@@ -134,19 +146,14 @@ function confettiGifts(){
     card.innerHTML=`
     <div class="gift-tiles">
 
-      <div class="gift-item" onclick="roses()">
-        <img src="ADD_GIFT1_IMAGE" class="gift-img"/>
-        <h3>Gift 1</h3>
-      </div>
-
       <div class="gift-item" onclick="letter()">
         <img src="img/gift_1_img.png" class="gift-img"/>
-        <h3>Gift 2</h3>
+        <h3>Gift</h3>
       </div>
 
       <div class="gift-item" onclick="wordcloud()">
         <img src="img/gift_2_img.png" class="gift-img"/>
-        <h3>Gift 3</h3>
+        <h3>Gift</h3>
       </div>
 
     </div>`;
@@ -179,15 +186,26 @@ function letter(){
 }
 
 /* ADD ROSE IMAGE / GIF HERE */
-function roses(){
-    document.getElementById("mainHeading").style.display="none";
-    document.getElementById("card").innerHTML=`
-    <h2>For you 🌹🎈</h2>
-    <img src="ADD_ROSE_IMAGE_URL" style="width:80%;border-radius:20px"/>
-    <br/><br/>
-    <button onclick="backToGifts()">Back to Gifts</button>
-    `;
-}
+//function roses(){
+//    document.getElementById("mainHeading").style.display="none";
+//
+//    const card = document.getElementById("card");
+//    card.innerHTML = `
+//        <div class="roses-scene">
+//
+//            <!-- 🎈 ADD BALLOON IMAGE URL BELOW -->
+//            <img src="ADD_BALLOON_IMAGE" class="balloon left"/>
+//            <img src="ADD_BALLOON_IMAGE" class="balloon right"/>
+//
+//            <!-- 🌹 ADD BOUQUET IMAGE URL BELOW -->
+//            <img src="ADD_BOUQUET_IMAGE" class="bouquet"/>
+//
+//        </div>
+//        <br/>
+//        <button onclick="backToGifts()">Back to Gifts</button>
+//    `;
+//}
+
 
 function wordcloud(){
     const card = document.getElementById("card");

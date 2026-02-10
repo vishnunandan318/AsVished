@@ -146,7 +146,7 @@ button{
 
 .gift-tiles{
     display:grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap:20px;
     margin-top:20px;
 }
@@ -163,4 +163,10 @@ button{
     width:100%;
     padding:12px;
     font-size:16px;
+}
+
+.reaction-text{
+    background: rgba(255,255,255,0.7);
+    padding: 8px 18px;
+    border-radius: 20px;
 }

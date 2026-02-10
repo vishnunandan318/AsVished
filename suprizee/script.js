@@ -189,17 +189,6 @@ function roses(){
     `;
 }
 
-/* ADD WORDCLOUD IMAGE HERE
-function wordcloud(){
-    document.getElementById("mainHeading").style.display="none";
-    document.getElementById("CloudSearch").innerHTML=`
-    <h2>Words that define us ☁️</h2>
-    <img src="img/wordcloud.png" style="width:100%;border-radius:20px"/>
-    <br/><br/>
-    <button onclick="confettiGifts()">Back to Gifts</button>
-    `;
-} */
-
 function wordcloud(){
     const card = document.getElementById("card");
     const heading = document.getElementById("mainHeading");
@@ -248,9 +237,7 @@ function showIntro(){
     card.innerHTML=`
         <h2 style="font-family:cursive">Hey Bangari 🥰</h2>
         <p style="font-size:18px">
-        I made a tiny surprise for you… ✨<br><br>
-        A small journey of us, our memories,<br>
-        and something special waiting at the end 💘<br><br>
+        I made a tiny surprise for you… ✨💘<br><br>
         Ready to begin?
         </p>
         <button onclick="loadQ()">Start the Journey ❤️</button>

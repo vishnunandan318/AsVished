@@ -36,6 +36,18 @@ body{
     text-align:center;
 }
 
+/* Bigger card only for Wordcloud gift */
+.card.wordcloud-mode{
+    max-width: 600px !important;
+    width: 95% !important;
+}
+
+/* Make image nicely fill the bigger card */
+.wordcloud-img{
+    width: 100%;
+    border-radius: 20px;
+}
+
 .options-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -101,4 +113,54 @@ button{
     font-family: 'Comic Sans MS', cursive;
     line-height: 1.6;
     box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+.gift-vertical{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+    margin-top:15px;
+}
+
+.gift-item{
+    background:#ff4b5c;
+    color:white;
+    padding:15px;
+    border-radius:20px;
+    cursor:pointer;
+    text-align:center;
+    transition:0.3s;
+}
+
+.gift-item:hover{
+    transform:scale(1.05);
+}
+
+.gift-img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:10px;
+}
+
+.gift-tiles{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:20px;
+    margin-top:20px;
+}
+
+/* Quiz options vertical */
+#options{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:15px;
+}
+
+#options button{
+    width:100%;
+    padding:12px;
+    font-size:16px;
 }
